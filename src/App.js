@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import BirdCard from "./BirdCard";
+import styled from "@emotion/styled";
+
+function getRandomBird() {
+  const birds = ["Blackbird", "Goldfinch", "Cormorant", "Magpie", "Bluetit"];
+
+  return birds[Math.floor(Math.random() * birds.length)];
+}
 
 function App() {
+  const [birds, setBirds] = useState([]);
+
+  const handleClick = () => {
+    setBirds([...birds, getRandomBird()]);
+  };
+
+  const renderedBirds = birds.map((bird, index) => {
+    return <BirdCard name={bird} key={index} />;
+  });
+
+  const Container = styled.div`
+    text-align: center;
+  `;
+
+  const Button = styled.button`
+    display: inline-block;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin: 20px;
+  `;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Container>
+        <Button onClick={handleClick}>Add Bird</Button>
+      </Container>
+      <Container>{renderedBirds}</Container>
     </div>
   );
 }
