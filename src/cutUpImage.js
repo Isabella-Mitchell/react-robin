@@ -4,6 +4,7 @@ import Beeb from "./images/beeb-building.jpeg";
 import BluetitFinal from "./images/bt-final.png";
 
 export function createCutUpImage() {
+  console.log("I'm curring up the image");
   const imageMap = {
     Bluetit: BluetitOutline,
     Beeb: Beeb,
@@ -17,9 +18,9 @@ export function createCutUpImage() {
 
   function cutImageUp() {
     let numColsToCut = 5;
-    let numRowsToCut = 5;
+    let numRowsToCut = 1;
     let widthOfOnePiece = 110;
-    let heightOfOnePiece = 110;
+    let heightOfOnePiece = 550;
 
     for (var x = 0; x < numColsToCut; ++x) {
       for (var y = 0; y < numRowsToCut; ++y) {

@@ -13,10 +13,13 @@ export function SortableImages(props) {
     transition,
   };
 
+  console.log("I'm creating the sortable images we");
+
   return (
     <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
       {/* Make anything in here */}
-      <Image />
+      {/* <Image /> */}
+      <img src={props.id} alt="puzzle-piece"></img>
     </div>
   );
 }

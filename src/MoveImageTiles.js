@@ -6,52 +6,43 @@ import {
   SortableContext,
   rectSwappingStrategy,
 } from "@dnd-kit/sortable";
-import { SortableItem } from "./SortableItem";
-// import { SortableImages } from "./SortableImages";
+import { SortableImages } from "./SortableImages";
 import { createCutUpImage } from "./cutUpImage";
 
-function App() {
-  const [birds, setBirds] = useState([
-    "Blackbird",
-    "Goldfinch",
-    "Cormorant",
-    "Magpie",
-    "Bluetit",
-  ]);
-
+function MoveImageTiles() {
   const cutUpImageArray = createCutUpImage();
+  console.log("I'm happening");
 
+  const [imagePieces, setImagePieces] = useState(cutUpImageArray);
+
+  console.log("I'm happening2");
   const Container = styled.div`
-    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 550px;
   `;
 
   return (
     <Container>
+      <h1 style={{ textAlign: "center" }}>Drag and Drop Image</h1>
       <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-        <h1>Drag and Drop Birds</h1>
-        <SortableContext items={birds} strategy={rectSwappingStrategy}>
-          {birds.map((bird) => (
-            <SortableItem key={bird} id={bird}></SortableItem>
+        <SortableContext items={imagePieces} strategy={rectSwappingStrategy}>
+          {imagePieces.map((imagePiece) => (
+            <SortableImages key={imagePiece} id={imagePiece}></SortableImages>
           ))}
         </SortableContext>
       </DndContext>
-      {/* <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-        <h1>Drag and Drop Birds</h1>
-        <SortableContext items={images} strategy={rectSwappingStrategy}>
-          <SortableImages key={images} id={images}></SortableImages>
-        </SortableContext>
-      </DndContext> */}
     </Container>
   );
 
   function handleDragEnd(event) {
-    console.log("Drag end called");
+    console.log("I'm happening 3");
     const { active, over } = event;
     console.log("ACTIVE: " + active.id);
     console.log("OVER: " + over.id);
 
     if (active.id !== over.id) {
-      setBirds((items) => {
+      setImagePieces((items) => {
         const activeIndex = items.indexOf(active.id);
         const overIndex = items.indexOf(over.id);
         console.log(arrayMove(items, activeIndex, overIndex));
@@ -59,7 +50,9 @@ function App() {
         return arrayMove(items, activeIndex, overIndex);
       });
     }
+    console.log("I'm happening 4");
   }
 }
+console.log("I'm happening 5 new new");
 
-export default App;
+export default MoveImageTiles;
