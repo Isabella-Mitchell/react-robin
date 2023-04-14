@@ -1,17 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import { DndContext, closestCenter } from "@dnd-kit/core";
 import { arrayMove } from "@dnd-kit/sortable";
-import { createCutUpImage } from "./cutUpImage";
+import { getCutUpImage } from "./cutUpImage";
 import MoveImageTilesNew from "./MoveImageTilesNew";
 
 function MoveImageTilesWrapper() {
-  const cutUpImageArray = createCutUpImage();
-  console.log("I'm happening");
+  // const cutUpImageArray = createCutUpImage();
+  console.log("I'm the start of the wrapper being rendered!");
 
-  const [imagePieces, setImagePieces] = useState(cutUpImageArray);
+  const [imagePieces, setImagePieces] = useState([]);
+  // const [imagePieces, setImagePieces] = useState(cutUpImageArray);
 
-  console.log("I'm happening2");
+  // TODO - fix useEffect so that it renders in the correct order
+  useEffect(() => {
+    (async () => {
+      setImagePieces(await getCutUpImage());
+      console.log("using effect");
+    })();
+  }, []);
+
   const Container = styled.div`
     margin-left: auto;
     margin-right: auto;
@@ -44,9 +52,8 @@ function MoveImageTilesWrapper() {
         return arrayMove(items, activeIndex, overIndex);
       });
     }
-    console.log("I'm happening 4");
   }
 }
-console.log("I'm happening 5 new new");
+console.log("I'm the end of the wrapper being rendered");
 
 export default MoveImageTilesWrapper;

@@ -1,7 +1,7 @@
 import React from "react";
 import { CSS } from "@dnd-kit/utilities";
 import { useSortable } from "@dnd-kit/sortable";
-import Image from "./Image";
+// import Image from "../makeStaticBirdImage/Image";
 
 export function SortableImages(props) {
   const { attributes, listeners, setNodeRef, transform, transition } =
@@ -13,12 +13,11 @@ export function SortableImages(props) {
     transition,
   };
 
-  console.log("I'm creating the sortable images we");
+  console.log("I'm creating each sortable image");
 
   return (
     <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
       {/* Make anything in here */}
-      {/* <Image /> */}
       <img src={props.id} alt="puzzle-piece"></img>
     </div>
   );

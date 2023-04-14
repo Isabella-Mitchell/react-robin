@@ -63,21 +63,32 @@ function ColourBox(props) {
   return (
     <div
       style={{
-        backgroundColor: props.colour,
-        width: "100px",
-        height: "100px",
+        display: "inline-block",
       }}
-    />
+    >
+      <div
+        style={{
+          backgroundColor: props.colour,
+          width: "100px",
+          height: "100px",
+          margin: "10px",
+        }}
+      />
+      <span>{props.colour}</span>
+    </div>
   );
 }
 
 function ColourList() {
   const colours = ["#765739", "yellow", "green"];
   return (
-    <div>
-      {colours.map((colour) => (
-        <ColourBox key={colour} colour={colour} />
-      ))}
+    <div style={{ textAlign: "center" }}>
+      <h1>Colours</h1>
+      <div>
+        {colours.map((colour) => (
+          <ColourBox key={colour} colour={colour} />
+        ))}
+      </div>
     </div>
   );
 }

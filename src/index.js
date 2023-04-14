@@ -1,21 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import MoveBirdCards from "./MoveBirdCards";
-import Image from "./Image";
-import MakeBirds from "./MakeBirds";
-import MoveImageTiles from "./MoveImageTiles";
-import MakeBirdGame from "./MakeBirdGame";
-import MoveImageTilesWrapper from "./MoveImageTilesWrapper";
+import MoveBirdCards from "./games/birdDragAndDropGames/index";
+import Image from "./games/makeStaticBirdImage/index";
+import MakeBirds from "./games/birdCardGenerator/index";
+import MoveImageTilesWrapper from "./games/makeDragDropBirdImage/MoveImageTilesWrapper";
+import ColourList from "./games/experiments/Colours";
 
 const el = document.getElementById("root");
 const root = ReactDOM.createRoot(el);
 
 root.render(
   <div>
-    {/* <MoveBirdCards />
+    <MoveBirdCards />
     <Image />
-    <MakeBirds /> */}
+    <MakeBirds />
     <MoveImageTilesWrapper />
-    <MakeBirdGame />
+    <ColourList />
   </div>
 );

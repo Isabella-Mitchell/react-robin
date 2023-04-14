@@ -1,26 +1,31 @@
-import React from "react";
-import BluetitOutline from "./images/bt-outline.png";
-import Beeb from "./images/beeb-building.jpeg";
-import BluetitFinal from "./images/bt-final.png";
+// import React from "react";
+import BluetitOutline from "../../images/bt-outline.png";
+import BluetitFinal from "../../images/bt-final.png";
 
-function MyImage() {
+// export const getCutUpImage = () => {
+//   return new Promise((resolve) => {
+//     resolve(createCutUpImage);
+//   });
+// };
+
+export function getCutUpImage() {
+  console.log("I'm cutting up your image");
   const imageMap = {
     Bluetit: BluetitOutline,
-    Beeb: Beeb,
     BluetitFinal: BluetitFinal,
   };
 
   var image = new Image();
   image.onload = cutImageUp;
   image.src = imageMap["BluetitFinal"];
+  var imagePieces = [];
 
   function cutImageUp() {
     let numColsToCut = 5;
-    let numRowsToCut = 5;
+    let numRowsToCut = 1;
     let widthOfOnePiece = 110;
-    let heightOfOnePiece = 110;
+    let heightOfOnePiece = 550;
 
-    var imagePieces = [];
     for (var x = 0; x < numColsToCut; ++x) {
       for (var y = 0; y < numRowsToCut; ++y) {
         var canvas = document.createElement("canvas");
@@ -41,22 +46,7 @@ function MyImage() {
         imagePieces.push(canvas.toDataURL());
       }
     }
-
-    // imagePieces now contains data urls of all the pieces of the image
-
-    var container = document.getElementById("myDiv");
-    for (let count = 0; count < imagePieces.length; count++) {
-      var oImg = document.createElement("img");
-      oImg.src = imagePieces[count];
-      container.appendChild(oImg);
-    }
   }
-  return (
-    <div>
-      <h1>Bird Picture Game</h1>
-      <div id="myDiv"></div>
-    </div>
-  );
+  console.log("the image is cut up");
+  return imagePieces;
 }
-
-export default MyImage;

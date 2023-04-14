@@ -1,7 +1,7 @@
 import React from "react";
 import { CSS } from "@dnd-kit/utilities";
 import { useSortable } from "@dnd-kit/sortable";
-import BirdCard from "./BirdCard";
+import BirdCard from "../reusableComponents/BirdCard";
 
 export function SortableItem(props) {
   const { attributes, listeners, setNodeRef, transform, transition } =

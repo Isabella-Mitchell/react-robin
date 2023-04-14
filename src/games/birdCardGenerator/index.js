@@ -1,5 +1,5 @@
 import { useState } from "react";
-import BirdCard from "./BirdCard";
+import BirdCard from "../reusableComponents/BirdCard";
 import styled from "@emotion/styled";
 
 function getRandomBird() {
@@ -32,7 +32,7 @@ function MakeBirds() {
   `;
   return (
     <div>
-      <h1>Bird Card Generator</h1>
+      <h1 style={{ textAlign: "center" }}>Random Bird Card Generator</h1>
       <Container>
         <Button onClick={handleClick}>Add Bird</Button>
       </Container>

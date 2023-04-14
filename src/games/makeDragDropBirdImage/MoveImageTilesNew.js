@@ -3,6 +3,8 @@ import { SortableContext, rectSwappingStrategy } from "@dnd-kit/sortable";
 import { SortableImages } from "./SortableImages";
 
 function MoveImageTilesNew(props) {
+  console.log("I'm making your image tiles!");
+  console.log(props.myArrayBeingPassedIn);
   return (
     <SortableContext
       items={props.myArrayBeingPassedIn}
@@ -14,6 +16,6 @@ function MoveImageTilesNew(props) {
     </SortableContext>
   );
 }
-console.log("I'm happening new new");
+console.log("I've made your image tiles");
 
 export default MoveImageTilesNew;

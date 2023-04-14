@@ -6,8 +6,8 @@ import {
   SortableContext,
   rectSwappingStrategy,
 } from "@dnd-kit/sortable";
-import { SortableImages } from "./SortableImages";
-import { createCutUpImage } from "./cutUpImage";
+import { SortableImages } from "../SortableImages";
+import { createCutUpImage } from "../cutUpImage";
 
 function MoveImageTiles() {
   const cutUpImageArray = createCutUpImage();

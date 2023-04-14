@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
-import BlackbirdOutline from "./images/bb-outline.png";
-import GoldfinchOutline from "./images/gf-outline.png";
-import CormorantOutline from "./images/cm-outline.png";
-import MagpieOutline from "./images/mp-outline.png";
-import BluetitOutline from "./images/bt-outline.png";
+import BlackbirdOutline from "../../images/bb-outline.png";
+import GoldfinchOutline from "../../images/gf-outline.png";
+import CormorantOutline from "../../images/cm-outline.png";
+import MagpieOutline from "../../images/mp-outline.png";
+import BluetitOutline from "../../images/bt-outline.png";
 
 const imageMap = {
   Blackbird: BlackbirdOutline,
